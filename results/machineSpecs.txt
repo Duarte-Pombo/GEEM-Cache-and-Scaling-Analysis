@@ -1,0 +1,429 @@
+------------
+Specs - lshw
+------------
+WARNING: you should run this program as super-user.
+feup-b204d04                
+    description: Computer
+    width: 64 bits
+    capabilities: smp vsyscall32
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-memory
+          description: System memory
+          physical id: 0
+          size: 31GiB
+     *-cpu
+          product: Intel(R) Core(TM) i7-14700T
+          vendor: Intel Corp.
+          physical id: 1
+          bus info: cpu@0
+          version: 6.183.1
+          size: 800MHz
+          capacity: 5GHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp x86-64 constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_detect user_shstk avx_vnni dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req hfi vnmi umip pku ospke waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize pconfig arch_lbr ibt flush_l1d arch_capabilities cpufreq
+          configuration: microcode=303
+     *-pci
+          description: Host bridge
+          product: Intel Corporation
+          vendor: Intel Corporation
+          physical id: 100
+          bus info: pci@0000:00:00.0
+          version: 01
+          width: 32 bits
+          clock: 33MHz
+        *-display
+             description: VGA compatible controller
+             product: Raptor Lake-S GT1 [UHD Graphics 770]
+             vendor: Intel Corporation
+             physical id: 2
+             bus info: pci@0000:00:02.0
+             logical name: /dev/fb0
+             version: 04
+             width: 64 bits
+             clock: 33MHz
+             capabilities: vga_controller bus_master cap_list rom fb
+             configuration: depth=32 driver=i915 latency=0 resolution=1920,1080
+             resources: iomemory:600-5ff iomemory:400-3ff irq:163 memory:6000000000-6000ffffff memory:4000000000-400fffffff ioport:3000(size=64) memory:c0000-dffff memory:4010000000-4016ffffff memory:4020000000-40ffffffff
+        *-generic
+             description: Signal processing controller
+             product: Raptor Lake Dynamic Platform and Thermal Framework Processor Participant
+             vendor: Intel Corporation
+             physical id: 4
+             bus info: pci@0000:00:04.0
+             version: 01
+             width: 64 bits
+             clock: 33MHz
+             capabilities: bus_master cap_list
+             configuration: driver=proc_thermal_pci latency=0
+             resources: iomemory:600-5ff irq:16 memory:6001100000-600111ffff
+        *-pci
+             description: PCI bridge
+             product: Raptor Lake PCIe 4.0 Graphics Port
+             vendor: Intel Corporation
+             physical id: 6
+             bus info: pci@0000:00:06.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:122 memory:80800000-808fffff
+           *-nvme
+                description: NVMe device
+                product: SK hynix PC801 HFS001TEJ9X101N
+                vendor: SK hynix
+                physical id: 0
+                bus info: pci@0000:01:00.0
+                logical name: /dev/nvme0
+                version: HPS1
+                serial: SME4N000710504852
+                width: 64 bits
+                clock: 33MHz
+                capabilities: nvme nvm_express bus_master cap_list
+                configuration: driver=nvme latency=0 nqn=nqn.2025-04.com.skhynix:nvme:nvm-subsystem-sn-SME4N000710504852 state=live
+                resources: irq:16 memory:80800000-80803fff
+              *-namespace:0
+                   description: NVMe disk
+                   physical id: 0
+                   logical name: hwmon1
+              *-namespace:1
+                   description: NVMe disk
+                   physical id: 2
+                   logical name: /dev/ng0n1
+              *-namespace:2
+                   description: NVMe disk
+                   physical id: 1
+                   bus info: nvme@0:1
+                   logical name: /dev/nvme0n1
+                   configuration: wwid=eui.ace42e005136cd3a2ee4ac0000000001
+        *-usb
+             description: USB controller
+             product: Alder Lake-S PCH USB 3.2 Gen 2x2 XHCI Controller
+             vendor: Intel Corporation
+             physical id: 14
+             bus info: pci@0000:00:14.0
+             version: 11
+             width: 64 bits
+             clock: 33MHz
+             capabilities: xhci bus_master cap_list
+             configuration: driver=xhci_hcd latency=0
+             resources: iomemory:600-5ff irq:123 memory:6001120000-600112ffff
+        *-memory UNCLAIMED
+             description: RAM memory
+             product: Alder Lake-S PCH Shared SRAM
+             vendor: Intel Corporation
+             physical id: 14.2
+             bus info: pci@0000:00:14.2
+             version: 11
+             width: 64 bits
+             clock: 33MHz (30.3ns)
+             capabilities: cap_list
+             configuration: latency=0
+             resources: iomemory:600-5ff iomemory:600-5ff memory:6001134000-6001137fff memory:600113a000-600113afff
+        *-communication:0
+             description: Communication controller
+             product: Alder Lake-S PCH HECI Controller #1
+             vendor: Intel Corporation
+             physical id: 16
+             bus info: pci@0000:00:16.0
+             version: 11
+             width: 64 bits
+             clock: 33MHz
+             capabilities: bus_master cap_list
+             configuration: driver=mei_me latency=0
+             resources: iomemory:600-5ff irq:162 memory:6001139000-6001139fff
+        *-communication:1
+             description: Serial controller
+             product: Intel Corporation
+             vendor: Intel Corporation
+             physical id: 16.3
+             bus info: pci@0000:00:16.3
+             version: 11
+             width: 32 bits
+             clock: 66MHz
+             capabilities: 16550 cap_list
+             configuration: driver=serial latency=0
+             resources: irq:19 ioport:3088(size=8) memory:80925000-80925fff
+        *-sata
+             description: SATA controller
+             product: Alder Lake-S PCH SATA Controller [AHCI Mode]
+             vendor: Intel Corporation
+             physical id: 17
+             bus info: pci@0000:00:17.0
+             version: 11
+             width: 32 bits
+             clock: 66MHz
+             capabilities: sata ahci_1.0 bus_master cap_list
+             configuration: driver=ahci latency=0
+             resources: irq:131 memory:80920000-80921fff memory:80924000-809240ff ioport:3080(size=8) ioport:3090(size=4) ioport:3060(size=32) memory:80923000-809237ff
+        *-isa
+             description: ISA bridge
+             product: Intel Corporation
+             vendor: Intel Corporation
+             physical id: 1f
+             bus info: pci@0000:00:1f.0
+             version: 11
+             width: 32 bits
+             clock: 33MHz
+             capabilities: isa bus_master
+             configuration: latency=0
+           *-pnp00:00
+                product: PnP device PNP0c02
+                physical id: 0
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:01
+                product: PnP device PNP0c02
+                physical id: 1
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:02
+                product: PnP device PNP0c02
+                physical id: 2
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:03
+                product: PnP device PNP0c02
+                physical id: 3
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:04
+                product: PnP device PNP0c02
+                physical id: 4
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:05
+                product: PnP device PNP0c02
+                physical id: 5
+                capabilities: pnp
+                configuration: driver=system
+        *-multimedia
+             description: Audio device
+             product: Alder Lake-S HD Audio Controller
+             vendor: Intel Corporation
+             physical id: 1f.3
+             bus info: pci@0000:00:1f.3
+             logical name: card0
+             logical name: /dev/snd/controlC0
+             logical name: /dev/snd/hwC0D0
+             logical name: /dev/snd/hwC0D2
+             logical name: /dev/snd/pcmC0D0c
+             logical name: /dev/snd/pcmC0D0p
+             logical name: /dev/snd/pcmC0D3p
+             logical name: /dev/snd/pcmC0D7p
+             logical name: /dev/snd/pcmC0D8p
+             logical name: /dev/snd/pcmC0D9p
+             version: 11
+             width: 64 bits
+             clock: 33MHz
+             capabilities: bus_master cap_list
+             configuration: driver=snd_hda_intel latency=64
+             resources: iomemory:600-5ff iomemory:600-5ff irq:164 memory:6001130000-6001133fff memory:6001000000-60010fffff
+           *-input:0
+                product: HDA Intel PCH Headphone
+                physical id: 0
+                logical name: input10
+                logical name: /dev/input/event10
+           *-input:1
+                product: HDA Intel PCH HDMI/DP,pcm=3
+                physical id: 1
+                logical name: input11
+                logical name: /dev/input/event11
+           *-input:2
+                product: HDA Intel PCH HDMI/DP,pcm=7
+                physical id: 2
+                logical name: input12
+                logical name: /dev/input/event12
+           *-input:3
+                product: HDA Intel PCH HDMI/DP,pcm=8
+                physical id: 3
+                logical name: input13
+                logical name: /dev/input/event13
+           *-input:4
+                product: HDA Intel PCH HDMI/DP,pcm=9
+                physical id: 4
+                logical name: input14
+                logical name: /dev/input/event14
+           *-input:5
+                product: HDA Intel PCH Mic
+                physical id: 5
+                logical name: input9
+                logical name: /dev/input/event9
+        *-serial:0
+             description: SMBus
+             product: Alder Lake-S PCH SMBus Controller
+             vendor: Intel Corporation
+             physical id: 1f.4
+             bus info: pci@0000:00:1f.4
+             version: 11
+             width: 64 bits
+             clock: 33MHz
+             configuration: driver=i801_smbus latency=0
+             resources: iomemory:600-5ff irq:18 memory:6001138000-60011380ff ioport:efa0(size=32)
+        *-serial:1
+             description: Serial bus controller
+             product: Alder Lake-S PCH SPI Controller
+             vendor: Intel Corporation
+             physical id: 1f.5
+             bus info: pci@0000:00:1f.5
+             version: 11
+             width: 32 bits
+             clock: 33MHz
+             configuration: driver=intel-spi latency=0
+             resources: irq:0 memory:80922000-80922fff
+        *-network
+             description: Ethernet interface
+             product: Ethernet Connection (17) I219-LM
+             vendor: Intel Corporation
+             physical id: 1f.6
+             bus info: pci@0000:00:1f.6
+             logical name: eno1
+             version: 11
+             serial: 24:fb:e3:f4:a1:0f
+             size: 1Gbit/s
+             capacity: 1Gbit/s
+             width: 32 bits
+             clock: 33MHz
+             capabilities: bus_master cap_list ethernet physical tp 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+             configuration: autonegotiation=on broadcast=yes driver=e1000e driverversion=6.17.0-14-generic duplex=full firmware=2.6-4 ip=10.227.162.51 latency=0 link=yes multicast=yes port=twisted pair speed=1Gbit/s
+             resources: irq:132 memory:80900000-8091ffff
+  *-input:0
+       product: Sleep Button
+       physical id: 1
+       logical name: input0
+       logical name: /dev/input/event0
+       capabilities: platform
+  *-input:1
+       product: Power Button
+       physical id: 2
+       logical name: input1
+       logical name: /dev/input/event1
+       capabilities: platform
+  *-input:2
+       product: Darfon HP 125 Wired Keyboard
+       physical id: 3
+       logical name: input2
+       logical name: /dev/input/event2
+       logical name: input2::capslock
+       logical name: input2::compose
+       logical name: input2::kana
+       logical name: input2::numlock
+       logical name: input2::scrolllock
+       capabilities: usb
+  *-input:3
+       product: Darfon HP 125 Wired Keyboard Consumer Control
+       physical id: 4
+       logical name: input3
+       logical name: /dev/input/event3
+       capabilities: usb
+  *-input:4
+       product: Darfon HP 125 Wired Keyboard System Control
+       physical id: 5
+       logical name: input4
+       logical name: /dev/input/event4
+       capabilities: usb
+  *-input:5
+       product: HP HP 128 Laser Wired Mouse
+       physical id: 6
+       logical name: input5
+       logical name: /dev/input/event5
+       logical name: /dev/input/mouse0
+       capabilities: usb
+  *-input:6
+       product: Intel HID events
+       physical id: 7
+       logical name: input6
+       logical name: /dev/input/event6
+       capabilities: platform
+  *-input:7
+       product: HP WMI hotkeys
+       physical id: 8
+       logical name: input7
+       logical name: /dev/input/event7
+       capabilities: platform
+  *-input:8
+       product: Video Bus
+       physical id: 9
+       logical name: input8
+       logical name: /dev/input/event8
+       capabilities: platform
+WARNING: output may be incomplete or inaccurate, you should run this program as super-user.
+
+------------
+Specs - lshw -short
+------------
+WARNING: you should run this program as super-user.
+H/W path       Device        Class          Description
+=======================================================
+                             system         Computer
+/0                           bus            Motherboard
+/0/0                         memory         31GiB System memory
+/0/1                         processor      Intel(R) Core(TM) i7-14700T
+/0/100                       bridge         Intel Corporation
+/0/100/2       /dev/fb0      display        Raptor Lake-S GT1 [UHD Graphics 770]
+/0/100/4                     generic        Raptor Lake Dynamic Platform and The
+/0/100/6                     bridge         Raptor Lake PCIe 4.0 Graphics Port
+/0/100/6/0     /dev/nvme0    storage        SK hynix PC801 HFS001TEJ9X101N
+/0/100/6/0/0   hwmon1        disk           NVMe disk
+/0/100/6/0/2   /dev/ng0n1    disk           NVMe disk
+/0/100/6/0/1   /dev/nvme0n1  disk           NVMe disk
+/0/100/14                    bus            Alder Lake-S PCH USB 3.2 Gen 2x2 XHC
+/0/100/14.2                  memory         RAM memory
+/0/100/16                    communication  Alder Lake-S PCH HECI Controller #1
+/0/100/16.3                  communication  Intel Corporation
+/0/100/17                    storage        Alder Lake-S PCH SATA Controller [AH
+/0/100/1f                    bridge         Intel Corporation
+/0/100/1f/0                  system         PnP device PNP0c02
+/0/100/1f/1                  system         PnP device PNP0c02
+/0/100/1f/2                  system         PnP device PNP0c02
+/0/100/1f/3                  system         PnP device PNP0c02
+/0/100/1f/4                  system         PnP device PNP0c02
+/0/100/1f/5                  system         PnP device PNP0c02
+/0/100/1f.3    card0         multimedia     Alder Lake-S HD Audio Controller
+/0/100/1f.3/0  input10       input          HDA Intel PCH Headphone
+/0/100/1f.3/1  input11       input          HDA Intel PCH HDMI/DP,pcm=3
+/0/100/1f.3/2  input12       input          HDA Intel PCH HDMI/DP,pcm=7
+/0/100/1f.3/3  input13       input          HDA Intel PCH HDMI/DP,pcm=8
+/0/100/1f.3/4  input14       input          HDA Intel PCH HDMI/DP,pcm=9
+/0/100/1f.3/5  input9        input          HDA Intel PCH Mic
+/0/100/1f.4                  bus            Alder Lake-S PCH SMBus Controller
+/0/100/1f.5                  bus            Alder Lake-S PCH SPI Controller
+/0/100/1f.6    eno1          network        Ethernet Connection (17) I219-LM
+/1             input0        input          Sleep Button
+/2             input1        input          Power Button
+/3             input2        input          Darfon HP 125 Wired Keyboard
+/4             input3        input          Darfon HP 125 Wired Keyboard Consume
+/5             input4        input          Darfon HP 125 Wired Keyboard System 
+/6             input5        input          HP HP 128 Laser Wired Mouse
+/7             input6        input          Intel HID events
+/8             input7        input          HP WMI hotkeys
+/9             input8        input          Video Bus
+WARNING: output may be incomplete or inaccurate, you should run this program as super-user.
+
+------------
+Specs - settings
+------------
+# System Details Report
+---
+
+## Report details
+- **Date generated:**                              2026-03-04 12:12:20
+
+## Hardware Information:
+- **Hardware Model:**                              HP HP ProOne 440 23.8 inch G9 All-in-One Desktop PC
+- **Memory:**                                      32.0 GiB
+- **Processor:**                                   Intel® Core™ i7-14700T × 28
+- **Graphics:**                                    Intel® Graphics (RPL-S)
+- **Disk Capacity:**                               1.0 TB
+
+## Software Information:
+- **Firmware Version:**                            U13 Ver. 02.19.00
+- **OS Name:**                                     Ubuntu 24.04.3 LTS
+- **OS Build:**                                    (null)
+- **OS Type:**                                     64-bit
+- **GNOME Version:**                               46
+- **Windowing System:**                            X11
+- **Kernel Version:**                              Linux 6.17.0-14-generic
+

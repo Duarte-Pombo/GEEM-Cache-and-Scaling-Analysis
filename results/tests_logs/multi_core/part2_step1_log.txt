@@ -1,0 +1,390 @@
+-------------------------------------------------
+Testing: Parallel Outer Loop (Menu 2) | Size: 1024x1024 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 0.575 seconds
+Result matrix: 
+524800 524800 524800 524800 524800 524800 524800 524800 524800 524800 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Inner Loop (Menu 3) | Size: 1024x1024 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 2.219 seconds
+Result matrix: 
+163968 229504 163968 229504 163968 229504 163968 229504 98432 229504 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Line (Menu 5) | Size: 1024x1024 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 0.114 seconds
+Result matrix: 
+524800 524800 524800 524800 524800 524800 524800 524800 524800 524800 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Outer Loop (Menu 2) | Size: 1536x1536 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 1.991 seconds
+Result matrix: 
+1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Inner Loop (Menu 3) | Size: 1536x1536 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 5.400 seconds
+Result matrix: 
+368832 221376 368832 221376 368832 516288 221376 516288 221376 516288 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Line (Menu 5) | Size: 1536x1536 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 0.370 seconds
+Result matrix: 
+1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Outer Loop (Menu 2) | Size: 2048x2048 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 5.031 seconds
+Result matrix: 
+2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Inner Loop (Menu 3) | Size: 2048x2048 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 18.796 seconds
+Result matrix: 
+655616 917760 655616 917760 655616 917760 655616 917760 655616 917760 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Line (Menu 5) | Size: 2048x2048 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 1.475 seconds
+Result matrix: 
+2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Outer Loop (Menu 2) | Size: 2560x2560 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 18.542 seconds
+Result matrix: 
+3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Inner Loop (Menu 3) | Size: 2560x2560 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 29.759 seconds
+Result matrix: 
+1.02432e+06 614720 1.02432e+06 1.43392e+06 1.02432e+06 614720 1.02432e+06 1.43392e+06 1.02432e+06 614720 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Line (Menu 5) | Size: 2560x2560 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 2.858 seconds
+Result matrix: 
+3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Outer Loop (Menu 2) | Size: 3072x3072 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 33.445 seconds
+Result matrix: 
+4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Inner Loop (Menu 3) | Size: 3072x3072 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 70.927 seconds
+Result matrix: 
+2.06477e+06 2.06477e+06 885120 1.47494e+06 1.47494e+06 885120 1.47494e+06 2.06477e+06 1.47494e+06 885120 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+
+-------------------------------------------------
+Testing: Parallel Line (Menu 5) | Size: 3072x3072 | Threads: 4
+-------------------------------------------------
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 4.909 seconds
+Result matrix: 
+4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 
+
+1. Sequential Multiplication 
+2. <#pragma omp for> in outer loop parallel Multiplication
+3. <#pragma omp for> in inner loop parallel Multiplication
+4. Sequencial Line Multiplication 
+5. Parallel Line Multiplication 
+6. Parallel + SIMD Line Multiplication
+7. Parallel + collapse(2) Line Multiplication
+0. Exit
+Selection?: 
+

@@ -1,0 +1,720 @@
+-------------------------------------------------
+Testing: C++ | Line-by-Line | Size: 1024 x 1024
+-------------------------------------------------
+Dimensions: lins=cols ? Time: 0.129 seconds
+Result matrix: 
+524800 524800 524800 524800 524800 524800 524800 524800 524800 524800 
+
+ Performance counter stats for './bin/cpp_opt':
+
+        68,347,062      cpu_core/mem_load_retired.l1_miss/                                        (94.13%)
+        13,594,759      cpu_core/mem_load_retired.l2_miss/                                        (94.13%)
+
+       0.140458730 seconds time elapsed
+
+       0.132244000 seconds user
+       0.008014000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust | Line-by-Line | Size: 1024 x 1024
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 0.638 seconds
+Result matrix: 
+524800 524800 524800 524800 524800 524800 524800 524800 524800 524800 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_opt':
+
+         1,916,497      cpu_core/mem_load_retired.l1_miss/                                      
+           246,122      cpu_core/mem_load_retired.l2_miss/                                      
+
+       0.643749676 seconds time elapsed
+
+       0.633436000 seconds user
+       0.009991000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust-Unsafe | Line-by-Line | Size: 1024 x 1024
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 0.329 seconds
+Result matrix: 
+524800 524800 524800 524800 524800 524800 524800 524800 524800 524800 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_unsafe_opt':
+
+        64,168,534      cpu_core/mem_load_retired.l1_miss/                                      
+         7,404,176      cpu_core/mem_load_retired.l2_miss/                                      
+
+       0.334495030 seconds time elapsed
+
+       0.328307000 seconds user
+       0.005987000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: C++ | Line-by-Line | Size: 1536 x 1536
+-------------------------------------------------
+Dimensions: lins=cols ? Time: 0.433 seconds
+Result matrix: 
+1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 1.18042e+06 
+
+ Performance counter stats for './bin/cpp_opt':
+
+       208,981,458      cpu_core/mem_load_retired.l1_miss/                                      
+        33,149,976      cpu_core/mem_load_retired.l2_miss/                                      
+
+       0.450153785 seconds time elapsed
+
+       0.436019000 seconds user
+       0.014000000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust | Line-by-Line | Size: 1536 x 1536
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 2.205 seconds
+Result matrix: 
+1180416 1180416 1180416 1180416 1180416 1180416 1180416 1180416 1180416 1180416 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_opt':
+
+       104,795,510      cpu_core/mem_load_retired.l1_miss/                                      
+         7,235,919      cpu_core/mem_load_retired.l2_miss/                                      
+
+       2.224155835 seconds time elapsed
+
+       2.196737000 seconds user
+       0.018989000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust-Unsafe | Line-by-Line | Size: 1536 x 1536
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 1.093 seconds
+Result matrix: 
+1180416 1180416 1180416 1180416 1180416 1180416 1180416 1180416 1180416 1180416 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_unsafe_opt':
+
+         7,874,852      cpu_core/mem_load_retired.l1_miss/                                      
+           651,822      cpu_core/mem_load_retired.l2_miss/                                      
+
+       1.105834778 seconds time elapsed
+
+       1.082502000 seconds user
+       0.022989000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: C++ | Line-by-Line | Size: 2048 x 2048
+-------------------------------------------------
+Dimensions: lins=cols ? Time: 1.525 seconds
+Result matrix: 
+2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 2.09818e+06 
+
+ Performance counter stats for './bin/cpp_opt':
+
+       570,398,261      cpu_core/mem_load_retired.l1_miss/                                        (99.99%)
+       181,628,296      cpu_core/mem_load_retired.l2_miss/                                        (99.99%)
+
+       1.553492701 seconds time elapsed
+
+       1.525971000 seconds user
+       0.026981000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust | Line-by-Line | Size: 2048 x 2048
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 5.400 seconds
+Result matrix: 
+2098176 2098176 2098176 2098176 2098176 2098176 2098176 2098176 2098176 2098176 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_opt':
+
+        13,577,520      cpu_core/mem_load_retired.l1_miss/                                      
+         2,058,412      cpu_core/mem_load_retired.l2_miss/                                      
+
+       5.424676195 seconds time elapsed
+
+       5.379626000 seconds user
+       0.037990000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust-Unsafe | Line-by-Line | Size: 2048 x 2048
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 2.945 seconds
+Result matrix: 
+2098176 2098176 2098176 2098176 2098176 2098176 2098176 2098176 2098176 2098176 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_unsafe_opt':
+
+        40,502,284      cpu_core/mem_load_retired.l1_miss/                                      
+         3,177,262      cpu_core/mem_load_retired.l2_miss/                                      
+
+       2.963896762 seconds time elapsed
+
+       2.932938000 seconds user
+       0.029989000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: C++ | Line-by-Line | Size: 2560 x 2560
+-------------------------------------------------
+Dimensions: lins=cols ? Time: 3.762 seconds
+Result matrix: 
+3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 3.27808e+06 
+
+ Performance counter stats for './bin/cpp_opt':
+
+     1,320,904,731      cpu_core/mem_load_retired.l1_miss/                                      
+       449,458,417      cpu_core/mem_load_retired.l2_miss/                                      
+
+       3.806116369 seconds time elapsed
+
+       3.769994000 seconds user
+       0.034990000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust | Line-by-Line | Size: 2560 x 2560
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 10.876 seconds
+Result matrix: 
+3278080 3278080 3278080 3278080 3278080 3278080 3278080 3278080 3278080 3278080 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_opt':
+
+       349,643,812      cpu_core/mem_load_retired.l1_miss/                                        (100.00%)
+        31,413,420      cpu_core/mem_load_retired.l2_miss/                                        (100.00%)
+
+      10.914137383 seconds time elapsed
+
+      10.864654000 seconds user
+       0.038991000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust-Unsafe | Line-by-Line | Size: 2560 x 2560
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 7.017 seconds
+Result matrix: 
+3278080 3278080 3278080 3278080 3278080 3278080 3278080 3278080 3278080 3278080 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_unsafe_opt':
+
+       426,835,848      cpu_core/mem_load_retired.l1_miss/                                      
+       150,004,506      cpu_core/mem_load_retired.l2_miss/                                      
+
+       7.053960929 seconds time elapsed
+
+       6.990266000 seconds user
+       0.053986000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: C++ | Line-by-Line | Size: 3072 x 3072
+-------------------------------------------------
+Dimensions: lins=cols ? Time: 7.196 seconds
+Result matrix: 
+4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 4.72013e+06 
+
+ Performance counter stats for './bin/cpp_opt':
+
+     2,383,808,702      cpu_core/mem_load_retired.l1_miss/                                      
+       951,744,599      cpu_core/mem_load_retired.l2_miss/                                      
+
+       7.258202072 seconds time elapsed
+
+       7.203343000 seconds user
+       0.052987000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust | Line-by-Line | Size: 3072 x 3072
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 19.395 seconds
+Result matrix: 
+4720128 4720128 4720128 4720128 4720128 4720128 4720128 4720128 4720128 4720128 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_opt':
+
+       213,260,229      cpu_core/mem_load_retired.l1_miss/                                        (100.00%)
+         9,134,707      cpu_core/mem_load_retired.l2_miss/                                        (100.00%)
+
+      19.445667336 seconds time elapsed
+
+      19.365586000 seconds user
+       0.066984000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust-Unsafe | Line-by-Line | Size: 3072 x 3072
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 11.184 seconds
+Result matrix: 
+4720128 4720128 4720128 4720128 4720128 4720128 4720128 4720128 4720128 4720128 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_unsafe_opt':
+
+       246,816,936      cpu_core/mem_load_retired.l1_miss/                                        (99.98%)
+        37,530,874      cpu_core/mem_load_retired.l2_miss/                                        (99.98%)
+
+      11.234319208 seconds time elapsed
+
+      11.158812000 seconds user
+       0.064981000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: C++ | Line-by-Line | Size: 4096 x 4096
+-------------------------------------------------
+Dimensions: lins=cols ? Time: 19.127 seconds
+Result matrix: 
+8.39066e+06 8.39066e+06 8.39066e+06 8.39066e+06 8.39066e+06 8.39066e+06 8.39066e+06 8.39066e+06 8.39066e+06 8.39066e+06 
+
+ Performance counter stats for './bin/cpp_opt':
+
+     5,862,238,338      cpu_core/mem_load_retired.l1_miss/                                      
+     2,100,435,280      cpu_core/mem_load_retired.l2_miss/                                      
+
+      19.244367476 seconds time elapsed
+
+      19.144599000 seconds user
+       0.086975000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust | Line-by-Line | Size: 4096 x 4096
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 47.484 seconds
+Result matrix: 
+8390656 8390656 8390656 8390656 8390656 8390656 8390656 8390656 8390656 8390656 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_opt':
+
+     8,372,804,560      cpu_core/mem_load_retired.l1_miss/                                        (100.00%)
+        56,103,234      cpu_core/mem_load_retired.l2_miss/                                        (100.00%)
+
+      47.561876160 seconds time elapsed
+
+      47.428120000 seconds user
+       0.114973000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust-Unsafe | Line-by-Line | Size: 4096 x 4096
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 28.252 seconds
+Result matrix: 
+8390656 8390656 8390656 8390656 8390656 8390656 8390656 8390656 8390656 8390656 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_unsafe_opt':
+
+     2,057,472,028      cpu_core/mem_load_retired.l1_miss/                                        (99.86%)
+       266,688,738      cpu_core/mem_load_retired.l2_miss/                                        (99.86%)
+
+      28.332785954 seconds time elapsed
+
+      28.213357000 seconds user
+       0.104975000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: C++ | Line-by-Line | Size: 6144 x 6144
+-------------------------------------------------
+Dimensions: lins=cols ? Time: 68.678 seconds
+Result matrix: 
+1.88774e+07 1.88774e+07 1.88774e+07 1.88774e+07 1.88774e+07 1.88774e+07 1.88774e+07 1.88774e+07 1.88774e+07 1.88774e+07 
+
+ Performance counter stats for './bin/cpp_opt':
+
+    19,947,709,931      cpu_core/mem_load_retired.l1_miss/                                        (99.98%)
+     7,321,411,658      cpu_core/mem_load_retired.l2_miss/                                        (99.98%)
+
+      68.923037905 seconds time elapsed
+
+      68.710328000 seconds user
+       0.189962000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust | Line-by-Line | Size: 6144 x 6144
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 161.068 seconds
+Result matrix: 
+18877440 18877440 18877440 18877440 18877440 18877440 18877440 18877440 18877440 18877440 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_opt':
+
+    27,890,906,046      cpu_core/mem_load_retired.l1_miss/                                        (100.00%)
+        66,365,650      cpu_core/mem_load_retired.l2_miss/                                        (100.00%)
+
+     161.225216013 seconds time elapsed
+
+     160.970365000 seconds user
+       0.216960000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust-Unsafe | Line-by-Line | Size: 6144 x 6144
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 96.758 seconds
+Result matrix: 
+18877440 18877440 18877440 18877440 18877440 18877440 18877440 18877440 18877440 18877440 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_unsafe_opt':
+
+     8,330,726,700      cpu_core/mem_load_retired.l1_miss/                                        (100.00%)
+       822,024,913      cpu_core/mem_load_retired.l2_miss/                                        (100.00%)
+
+      96.917756549 seconds time elapsed
+
+      96.675503000 seconds user
+       0.216960000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: C++ | Line-by-Line | Size: 8192 x 8192
+-------------------------------------------------
+Dimensions: lins=cols ? Time: 167.392 seconds
+Result matrix: 
+3.35585e+07 3.35585e+07 3.35585e+07 3.35585e+07 3.35585e+07 3.35585e+07 3.35585e+07 3.35585e+07 3.35585e+07 3.35585e+07 
+
+ Performance counter stats for './bin/cpp_opt':
+
+    48,874,501,802      cpu_core/mem_load_retired.l1_miss/                                        (100.00%)
+    17,120,972,458      cpu_core/mem_load_retired.l2_miss/                                        (100.00%)
+
+     167.806457138 seconds time elapsed
+
+     167.431433000 seconds user
+       0.338944000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust | Line-by-Line | Size: 8192 x 8192
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 393.142 seconds
+Result matrix: 
+33558528 33558528 33558528 33558528 33558528 33558528 33558528 33558528 33558528 33558528 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_opt':
+
+    66,125,356,003      cpu_core/mem_load_retired.l1_miss/                                        (100.00%)
+       139,301,179      cpu_core/mem_load_retired.l2_miss/                                        (100.00%)
+
+     393.412086478 seconds time elapsed
+
+     392.942243000 seconds user
+       0.401937000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust-Unsafe | Line-by-Line | Size: 8192 x 8192
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 230.160 seconds
+Result matrix: 
+33558528 33558528 33558528 33558528 33558528 33558528 33558528 33558528 33558528 33558528 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_unsafe_opt':
+
+    20,174,267,549      cpu_core/mem_load_retired.l1_miss/                                        (100.00%)
+     1,819,506,328      cpu_core/mem_load_retired.l2_miss/                                        (100.00%)
+
+     230.433162670 seconds time elapsed
+
+     229.979416000 seconds user
+       0.404928000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: C++ | Line-by-Line | Size: 10240 x 10240
+-------------------------------------------------
+Dimensions: lins=cols ? Time: 323.029 seconds
+Result matrix: 
+5.24339e+07 5.24339e+07 5.24339e+07 5.24339e+07 5.24339e+07 5.24339e+07 5.24339e+07 5.24339e+07 5.24339e+07 5.24339e+07 
+
+ Performance counter stats for './bin/cpp_opt':
+
+    91,967,366,027      cpu_core/mem_load_retired.l1_miss/                                        (100.00%)
+    34,814,130,292      cpu_core/mem_load_retired.l2_miss/                                        (100.00%)
+
+     323.684175160 seconds time elapsed
+
+     323.104956000 seconds user
+       0.513907000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust | Line-by-Line | Size: 10240 x 10240
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 755.689 seconds
+Result matrix: 
+52433920 52433920 52433920 52433920 52433920 52433920 52433920 52433920 52433920 52433920 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_opt':
+
+   129,347,576,867      cpu_core/mem_load_retired.l1_miss/                                        (100.00%)
+       386,670,899      cpu_core/mem_load_retired.l2_miss/                                        (100.00%)
+
+     756.099145329 seconds time elapsed
+
+     755.365953000 seconds user
+       0.591895000 seconds sys
+
+
+
+
+-------------------------------------------------
+Testing: Rust-Unsafe | Line-by-Line | Size: 10240 x 10240
+-------------------------------------------------
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: Dimensions: lins=cols ? Time: 449.949 seconds
+Result matrix: 
+52433920 52433920 52433920 52433920 52433920 52433920 52433920 52433920 52433920 52433920 
+
+1. Multiplication
+2. Line Multiplication
+3. Block Multiplication
+0. Exit
+Selection?: 
+ Performance counter stats for './bin/rust_unsafe_opt':
+
+    37,163,810,949      cpu_core/mem_load_retired.l1_miss/                                      
+     3,495,205,003      cpu_core/mem_load_retired.l2_miss/                                      
+
+     450.365849705 seconds time elapsed
+
+     449.649850000 seconds user
+       0.625884000 seconds sys
+
+
+
+
