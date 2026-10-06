@@ -1,145 +1,205 @@
 # Performance Evaluation of Matrix Multiplication
 
-## Project Overview
-This repository contains the implementation and analysis of various matrix multiplication algorithms to study the effect of memory hierarchy and multi-core execution on processor performance. The project is divided into two primary parts: single-core performance evaluation (comparing C++ and Rust) and multi-core performance evaluation (using OpenMP in C++).
+A comparative performance and scalability study of single-core and multi-core matrix multiplication ($n \times n$), analyzing the impact of CPU cache hierarchies, compiler auto-vectorization, programming language runtime overhead (C++ vs. Safe/Unsafe Rust), and OpenMP parallelization strategies.
 
-The computational complexity for all implemented matrix multiplication algorithms is $2n^3$ FLOPs for matrices of size $n\times n$.
-
-## Single-Core Performance
-
-This section analyzes the impact of memory access patterns and cache utilization on a single CPU core.
-
-### Implemented Algorithms
-
-1.  **Basic Algorithm (BMMA):** The naive approach. Iterates in the mathematical order (rows $\times$ columns), resulting in poor spatial locality for the second matrix.
-2.  **Line-by-Line Algorithm (LLA):** A cache-friendly reformulation (row-by-row) that dramatically reduces cache misses by accessing memory sequentially.
-3.  **Block-Oriented Algorithm (BOA):** A cache-aware algorithm that divides matrices into sub-blocks to maximize data reuse within L1/L2 cache levels.
-
-### Metrics and Tooling
-
-* **Execution Time:** Measured for matrices from $1024\times 1024$ to $10240\times 10240$.
-* **Hardware Counters:** Linux `perf` was used to track `mem_load_retired.l1_miss` and `mem_load_retired.l2_miss`.
-* **Normalized Misses:** To compare across scales, we used the formula: $Normalised\ Misses = \frac{L1\ or\ L2\ Misses}{n^3}$.
+Developed for the **Parallel and Distributed Computing (CPD)** course at the **Faculty of Engineering of the University of Porto (FEUP)**.
 
 ---
 
-## Part 2: Multi-Core Performance
+## Overview
 
-We scaled the analysis to a multi-core architecture using the FEUP university machines (Intel® Core™ i7-14700T).
+Matrix multiplication ($C = A \times B$) has a deterministic computational complexity of $2n^3$ floating-point operations. Because arithmetic complexity is identical across standard algorithmic formulations, all throughput variations derive directly from memory access patterns, hardware cache locality, compiler vectorization, and thread orchestration.
 
-### Parallel Implementations
+This project investigates:
 
-1.  **Parallel Outer Loop:** Distributes the $i$-loop. While it reduces work per thread, it does not fix the underlying memory bottleneck of the basic algorithm.
-2.  **Parallel Inner Loop:** **Warning:** This implementation is incorrect as it introduces race conditions on the results matrix and significant synchronization overhead.
-3.  **Parallel Line:** Parallelizes the $i$-loop of the cache-friendly `ikj` algorithm. This was our most successful strategy.
-
-### Advanced Directives
-For the $8192\times 8192$ matrix, we explored:
-* `#pragma omp simd`: Adds AVX2 vectorization to thread parallelism, providing a ~15-18% boost.
-* `#pragma omp parallel for collapse(2)`: Merges loops to expose more parallelism, though it can occasionally break spatial locality.
+1. **Memory Locality & Cache Hierarchy:** Analyzing cache misses (L1, L2) and data reuse across naive, row-major line traversal, and cache-blocked implementations.
+2. **Language & Compiler Efficiency:** Benchmarking C++ (GCC with AVX2 SIMD) against Safe Rust (with bounds checking) and Unsafe Rust (`get_unchecked`).
+3. **Multi-Core Scalability:** Evaluating thread distribution strategies, OpenMP worksharing directives, SIMD hints, loop collapsing, and scaling limits on heterogeneous architectures (Intel Raptor Lake P-core / E-core).
 
 ---
 
-## Results and Analysis
+## Key Performance Results
 
-### 1. The Power of Locality
-The jump from the Basic Algorithm to the Line-by-Line Algorithm was the most significant optimization, yielding a **~17.5x speedup** in C++ at $n=1024$. This is directly attributed to reducing the normalized L1 cache miss rate from near **1.00** to roughly **0.06**.
-
-### 2. Language Comparison (C++ vs. Rust)
-* **C++** generally outperformed Rust in optimized variants (LLA/BOA) due to GCC’s aggressive auto-vectorization with `-O3 -march=native`.
-* **Rust Safe** was limited by runtime bounds checks, which prevented the compiler from using SIMD instructions.
-* **Rust Unsafe** (using `get_unchecked`) recovered some performance but did not consistently beat C++.
-
-### 3. Multi-Core Scaling and the "Topology Ceiling"
-Performance did not scale linearly with thread count. We observed a plateau beyond **12–16 threads**. This is caused by:
-* **Memory Bandwidth Saturation:** The $n=8192$ matrix (~1.5 GB) far exceeds cache, bottlenecking at the RAM.
-* **Heterogeneous Architecture:** The test CPU uses a mix of P-cores (Performance) and E-cores (Efficiency). Once the workload spills onto E-cores, per-thread throughput drops.
+| Optimization Level | Strategy | Representative Throughput | Primary Bottleneck / Speedup Driver |
+| --- | --- | --- | --- |
+| **Baseline (BMMA)** | Naive $ijk$ loop order | $\sim 0.3 - 0.9$ GFlop/s | Column-stride memory traversal on matrix $B$; L1 miss rates $> 85\%$. |
+| **Spatial Locality (LLA)** | Loop reordering to $ikj$ | $\sim 6.6 - 16.6$ GFlop/s | **$\sim 17.5\times$ speedup**; consecutive row access enables hardware prefetching and AVX2 SIMD. |
+| **Cache Blocking (BOA)** | Block tiling ($b = 128, 256, 512$) | $\sim 12.0 - 17.2$ GFlop/s | **$\sim 2\times$ speedup** over LLA at large matrices ($n \ge 8192$); working sets fit within 2 MB L2 cache. |
+| **Language Dynamics** | C++ vs. Rust Safe vs. Rust Unsafe | C++ ($16.6$) > Rust Unsafe ($6.5$) > Rust Safe ($3.4$) | Rust safe runtime bounds checks inhibit SIMD vectorization; unsafe recovers partial vectorization. |
+| **Multi-Core (OpenMP)** | Parallel Line + SIMD (24 threads) | $\sim 23.3$ GFlop/s ($n = 8192$) | Sub-linear scaling plateauing beyond 12–16 threads due to memory bandwidth limits and P/E-core topology. |
 
 ---
 
-## Benchmarking & Automation
+## Repository Structure
 
-To ensure consistency across all experimental runs, we provided automation scripts that handle compilation, execution, and data collection via `perf`.
+```text
+.
+├── doc/                        # Technical report (PDF and LaTeX source)
+├── graphImgs/                  # Performance, cache-miss, and speedup comparison plots
+├── results/
+│   ├── machineSpecs.txt        # Benchmark machine hardware configuration
+│   ├── pythonGraphs/           # Matplotlib scripts for data visualization
+│   ├── tests_logs/             # Execution and Linux perf hardware counter raw logs
+│   ├── single_core_test_script.sh
+│   └── multi_core_test_script.sh
+├── src/
+│   ├── singleCore.cpp          # C++ single-core implementations (Basic, Line, Block)
+│   ├── multiCore.cpp           # C++ multi-core OpenMP implementations
+│   └── matrix_mult/            # Rust implementations
+│       ├── Cargo.toml
+│       └── src/
+│           ├── main.rs         # Safe Rust implementations
+│           └── main_unsafe.rs  # Unsafe Rust implementations
+├── multi_thread.sh             # Benchmark automation for multi-core scaling
+├── testing_unsafe_rs.sh        # Benchmark automation for single-core comparisons
+└── README.md
 
-### Single-Core Batch Testing
-This script executes the entire single-core suite (Basic and Line-by-Line) for both C++ and Rust. It iterates through the required matrix sizes ($1024$ to $3072$) and logs hardware counters for L1 and L2 misses.
-
-```bash
-# Run from the project root (assign1)
-# One must ensure that the perf line for the intened CPU (Intel or AMD) is uncommented and the undesired one is commented
-./testing_unsafe_rs.sh 
-```
-*Note: This script automatically detects CPU architecture features (e.g., AVX2) to optimize the C++ and rust variants accordingly*
-
-### Multi-Core Scalability Testing
-This script automates the multi-threaded benchmarks for the Line-by-Line algorithm. It tests the matrix size $8192 \times 8192$ across the full range of thread counts ($4, 8, 12, 16, 20, 24$).
-
-```bash
-# Run from the project root (assign1)
-./multi_thread.sh 
-```
-
-### Data Outputs
-After running these scripts, the raw data will be populated in the `results/` directory as log files. These files serve as the primary data source for the analysis, tables and graphs provided in the final report.
-
----
-
-
-## Compilation and Execution
-
-### C++ Implementations
-```bash
-# Basic compilation
-g++ -O2 -fopenmp matrixproduct.cpp -o matrixproduct
-
-# Optimized Line/Block variants
-g++ -O3 -fno-plt -flto -march=native -fopenmp matrix_line.cpp -o matrix_line
-```
-
-### Rust Implementations
-```bash
-cargo build --release
-```
-
-### Profiling with Perf
-To collect the cache miss data used in our analysis:
-```bash
-perf stat -e cpu_core/mem_load_retired.l1_miss/,cpu_core/mem_load_retired.l2_miss/ ./bin/matrix_executable
 ```
 
 ---
 
-## Key Conclusions
-Performance optimization is fundamentally hierarchical:
-1.  **Memory Access Patterns First:** No amount of threads can fix a cache-unfriendly algorithm.
-2.  **Compiler/Language Second:** Once locality is fixed, SIMD and language overheads (like bounds checks) become the next bottleneck.
-3.  **Parallelism Last:** Multi-core execution is only effective once the previous two layers are optimized, and even then, it is constrained by hardware topology and memory bandwidth.
+## Experimental Setup
 
----
-
-
+* **CPU:** Intel® Core™ i7-14700T (20 physical cores: 8 P-cores up to 5.2 GHz + 12 E-cores; 28 total threads)
+* **Caches:**
+* L1 Data: 48 KB per P-core / 32 KB per E-core
+* L2: 2 MB per P-core / 2 MB per 4 E-cores
+* L3: 33 MB shared
 
 
-This updated version of your README reintegrates the **Prerequisites** section, using technical details from your hardware setup and the tools specified in your report. I’ve also included a "Troubleshooting" subsection for `perf` permissions to ensure others can replicate your results without hits.
+* **RAM:** 32 GiB DDR5
+* **OS:** Ubuntu 24.04 LTS (Linux kernel 6.17)
+* **Compilers:** GCC 13+ (`-O3 -march=native -flto -fopenmp`), Rust 2024 Edition (`--release`)
+* **Profiling:** Linux `perf` (`mem_load_retired.l1_miss`, `mem_load_retired.l2_miss`)
 
 ---
 
 ## Prerequisites
 
-To compile and run the programs and replicate the benchmarks, ensure your environment meets the following requirements:
+Ensure all required compilers and profilers are installed:
 
+```bash
+# C++ toolchain and OpenMP
+sudo apt update
+sudo apt install build-essential linux-tools-common linux-tools-generic
 
-### Software Requirements
-* **C++ Compiler:** `g++` (GCC) with support for OpenMP and C++11 or higher.
-* **Rust Toolchain:** `rustc` and `cargo` (Edition 2024 was used for this study).
-* **Profiling Tool:** Linux `perf` utilities.
+# Rust toolchain
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-### Troubleshooting `perf` Permissions
-Accessing hardware performance counters requires specific kernel permissions. If `perf stat` fails, run the following command to allow profiling:
+# Python dependencies for graphing
+pip install matplotlib numpy pandas
+
+```
+
+### Linux `perf` Event Permissions
+
+Hardware performance counter collection requires elevated privileges:
 
 ```bash
 sudo sysctl -w kernel.perf_event_paranoid=-1
+
 ```
-*Note: This setting will reset after a reboot unless added to `/etc/sysctl.conf`.*
+
+*To persist across reboots, add `kernel.perf_event_paranoid = -1` to `/etc/sysctl.conf`.*
 
 ---
+
+## Build & Manual Execution
+
+### 1. C++ Implementations
+
+* **Single-Core (Line and Block variants):**
+```bash
+g++ -O3 -fno-plt -flto -march=native src/singleCore.cpp -o bin_single_core
+./bin_single_core
+
+```
+
+
+* **Multi-Core (OpenMP):**
+```bash
+g++ -O3 -fno-plt -flto -march=native -fopenmp src/multiCore.cpp -o bin_multi_core
+./bin_multi_core
+
+```
+
+
+
+### 2. Rust Implementations
+
+From the Rust workspace root:
+
+```bash
+cd src/matrix_mult
+
+# Safe implementation
+cargo build --release --bin matrix_mult
+./target/release/matrix_mult
+
+# Unsafe implementation (eliding bounds checks via get_unchecked)
+cargo build --release --bin main_unsafe
+./target/release/main_unsafe
+
+```
+
+### 3. Profiling Hardware Counters with `perf`
+
+```bash
+perf stat -e cpu_core/mem_load_retired.l1_miss/,cpu_core/mem_load_retired.l2_miss/ ./bin_single_core
+
+```
+
+---
+
+## Automated Benchmarking & Visualization
+
+The repository includes automation scripts that orchestrate compilation, loop over matrix dimensions ($n = 1024$ through $10240$), capture execution times, query hardware performance counters, and export formatted logs into `results/tests_logs/`:
+
+* **Single-Core Test Suite:**
+```bash
+chmod +x testing_unsafe_rs.sh ./results/single_core_test_script.sh
+./testing_unsafe_rs.sh
+
+```
+
+
+* **Multi-Core Scalability Suite ($n = 8192$, 4 to 24 threads):**
+```bash
+chmod +x multi_thread.sh ./results/multi_core_test_script.sh
+./multi_thread.sh
+
+```
+
+
+* **Regenerating Report Graphs:**
+```bash
+cd results/pythonGraphs
+python3 graphGen.py
+python3 graphGenOverlap.py
+
+```
+
+
+Generated plots will be saved directly into `graphImgs/`.
+
+---
+
+## Architecture Insights
+
+1. **Memory Access Order Dominates Complexity:** Moving from naive $ijk$ to $ikj$ traversal drops normalized L1 miss rates from $> 0.85$ to under $0.08$. Algorithmic memory alignment provides an order-of-magnitude greater speedup than upgrading compiler flags or adding thread parallelism to unoptimized access patterns.
+2. **Compiler Vectorization vs. Language Safety:** GCC auto-vectorizes continuous inner loops using AVX2 registers. Safe Rust enforces runtime slice bounds checks that inhibit full vector loop vectorization. Bypassing bounds checks via `get_unchecked` restores partial vectorization, doubling throughput.
+3. **The Topology Ceiling in Multi-Threading:** Beyond 12–16 threads on hybrid multi-core CPUs, scaling degrades due to:
+* **Memory bandwidth saturation:** Large matrices ($n = 8192$, $\sim 1.5$ GB) continuously evict cache and saturate shared memory bus channels.
+* **Core asymmetry:** Work dispatched to Efficiency cores (E-cores) exhibits lower IPC, causing thread synchronization delays across the thread barrier.
+
+
+
+---
+
+## Authors
+
+* **André Pinho** — up202307008
+* **Duarte Martins** — up202304549
+* **Maria Beatriz Leite** — up202307229
+
+Faculty of Engineering, University of Porto (FEUP)
