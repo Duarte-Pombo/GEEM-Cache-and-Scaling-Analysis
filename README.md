@@ -2,8 +2,6 @@
 
 A comparative performance and scalability study of single-core and multi-core matrix multiplication ($n \times n$), analyzing the impact of CPU cache hierarchies, compiler auto-vectorization, programming language runtime overhead (C++ vs. Safe/Unsafe Rust), and OpenMP parallelization strategies.
 
-Developed for the **Parallel and Distributed Computing (CPD)** course at the **Faculty of Engineering of the University of Porto (FEUP)**.
-
 ---
 
 ## Overview
@@ -191,15 +189,3 @@ Generated plots will be saved directly into `graphImgs/`.
 3. **The Topology Ceiling in Multi-Threading:** Beyond 12–16 threads on hybrid multi-core CPUs, scaling degrades due to:
 * **Memory bandwidth saturation:** Large matrices ($n = 8192$, $\sim 1.5$ GB) continuously evict cache and saturate shared memory bus channels.
 * **Core asymmetry:** Work dispatched to Efficiency cores (E-cores) exhibits lower IPC, causing thread synchronization delays across the thread barrier.
-
-
-
----
-
-## Authors
-
-* **André Pinho** — up202307008
-* **Duarte Martins** — up202304549
-* **Maria Beatriz Leite** — up202307229
-
-Faculty of Engineering, University of Porto (FEUP)
